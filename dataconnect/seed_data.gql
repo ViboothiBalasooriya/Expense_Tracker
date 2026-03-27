@@ -1,0 +1,94 @@
+mutation CreateDemoData @transaction @auth(level: USER, insecureReason: "This is a seed data mutation, only callable by an authenticated user for populating initial data.") {
+  user1: user_insert(data: {
+    id: "user-id-1",
+    displayName: "Alice Smith",
+    email: "alice.smith@example.com",
+    createdAt: "2023-01-01T10:00:00Z",
+    photoUrl: "https://example.com/alice.jpg",
+    currencyPreference: "USD"
+  })
+  user2: user_insert(data: {
+    id: "user-id-2",
+    displayName: "Bob Johnson",
+    email: "bob.johnson@example.com",
+    createdAt: "2023-01-01T10:05:00Z",
+    photoUrl: "https://example.com/bob.jpg",
+    currencyPreference: "EUR"
+  })
+  account1: account_insert(data: {
+    id: "account-id-1",
+    userId: "user-id-1",
+    name: "Checking Account",
+    type: "Checking",
+    balance: 1500.75,
+    createdAt: "2023-01-01T10:10:00Z",
+    description: "Everyday checking account"
+  })
+  account2: account_insert(data: {
+    id: "account-id-2",
+    userId: "user-id-1",
+    name: "Savings Account",
+    type: "Savings",
+    balance: 5000.00,
+    createdAt: "2023-01-01T10:15:00Z",
+    description: "Long-term savings"
+  })
+  category1: category_insert(data: {
+    id: "category-id-1",
+    userId: "user-id-1",
+    name: "Groceries",
+    type: "Expense",
+    createdAt: "2023-01-01T10:20:00Z",
+    budgetAmount: 300.00
+  })
+  category2: category_insert(data: {
+    id: "category-id-1",
+    userId: "user-id-2",
+    name: "Groceries",
+    type: "Expense",
+    createdAt: "2023-01-01T10:20:00Z",
+    budgetAmount: 300.00
+  })
+  category3: category_insert(data: {
+    id: "category-id-2",
+    userId: "user-id-1",
+    name: "Salary",
+    type: "Income",
+    createdAt: "2023-01-01T10:25:00Z"
+  })
+  recurringTransaction1: recurringTransaction_insert(data: {
+    id: "recurring-transaction-id-1",
+    userId: "user-id-1",
+    accountId: "account-id-1",
+    categoryId: "category-id-1",
+    type: "Expense",
+    amount: 50.00,
+    startDate: "2023-02-01",
+    frequency: "Monthly",
+    createdAt: "2023-01-01T10:30:00Z",
+    description: "Netflix subscription"
+  })
+  transaction1: transaction_insert(data: {
+    id: "transaction-id-1",
+    userId: "user-id-1",
+    accountId: "account-id-1",
+    categoryId: "category-id-1",
+    type: "Expense",
+    amount: 75.50,
+    date: "2023-01-15",
+    description: "Weekly groceries",
+    createdAt: "2023-01-15T12:00:00Z",
+    notes: "From local supermarket"
+  })
+  transaction2: transaction_insert(data: {
+    id: "transaction-id-2",
+    userId: "user-id-1",
+    accountId: "account-id-1",
+    categoryId: "category-id-2",
+    type: "Income",
+    amount: 2000.00,
+    date: "2023-01-20",
+    description: "Monthly salary",
+    createdAt: "2023-01-20T09:00:00Z"
+  })
+}
