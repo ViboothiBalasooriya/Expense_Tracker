@@ -1,0 +1,311 @@
+:root {
+    --bg-color-main: #0a0e17;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --color-income: #10b981;
+    --color-expense: #ef4444;
+    --color-accent: #6366f1;
+    --color-accent-hover: #4f46e5;
+    --font-family: 'Outfit', sans-serif;
+    --blur-xl: blur(20px);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color-main);
+    background-image: 
+        radial-gradient(ellipse at 10% 10%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 90%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    backdrop-filter: var(--blur-xl);
+    -webkit-backdrop-filter: var(--blur-xl);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.balance-container {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(99, 102, 241, 0.05));
+    border-radius: 16px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+}
+
+.balance-container p {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.balance-container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.summary {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.summary-card {
+    flex: 1;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--card-border);
+    padding: 1.25rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.summary-card h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.money {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.money.plus {
+    color: var(--color-income);
+}
+
+.money.minus {
+    color: var(--color-expense);
+}
+
+h3 {
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.list {
+    list-style-type: none;
+    margin-bottom: 2.5rem;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+.list::-webkit-scrollbar {
+    width: 6px;
+}
+.list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+.list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.list li {
+    background: rgba(0,0,0,0.25);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.875rem 1rem;
+    margin-bottom: 0.75rem;
+    border-radius: 12px;
+    position: relative;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.list li:hover {
+    background: rgba(0,0,0,0.4);
+}
+
+.list li.plus {
+    border-left-color: var(--color-income);
+}
+
+.list li.minus {
+    border-left-color: var(--color-expense);
+}
+
+.delete-btn {
+    cursor: pointer;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--color-expense);
+    border: none;
+    font-size: 1rem;
+    padding: 0.4rem;
+    border-radius: 8px;
+    opacity: 0;
+    transition: all 0.2s ease;
+    position: absolute;
+    right: -40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list li:hover .delete-btn {
+    opacity: 1;
+    right: 10px;
+}
+
+.delete-btn:hover {
+    background-color: var(--color-expense);
+    color: white;
+}
+
+.amount-display {
+    transition: transform 0.2s ease;
+    font-weight: 600;
+}
+
+.list li:hover .amount-display {
+    transform: translateX(-35px);
+}
+
+.desc-display {
+    font-size: 0.95rem;
+}
+
+.form-control {
+    margin-bottom: 1.25rem;
+}
+
+.form-control label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.form-control small {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.form-control input {
+    width: 100%;
+    padding: 0.875rem;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: rgba(0,0,0,0.2);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: rgba(0,0,0,0.4);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.form-control input::placeholder {
+    color: rgba(255,255,255,0.2);
+}
+
+.btn {
+    cursor: pointer;
+    background-color: var(--color-accent);
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-accent-hover);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 480px) {
+    .app-container {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+    .summary {
+        flex-direction: column;
+    }
+}
