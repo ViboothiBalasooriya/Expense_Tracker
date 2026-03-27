@@ -1,0 +1,50 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  photoUrl: String
+  currencyPreference: String
+}
+
+type Account @table {
+  user: User!
+  name: String!
+  type: String!
+  balance: Float!
+  createdAt: Timestamp!
+  description: String
+}
+
+type Category @table {
+  user: User!
+  name: String!
+  type: String!
+  createdAt: Timestamp!
+  budgetAmount: Float
+}
+
+type Transaction @table {
+  user: User!
+  account: Account!
+  category: Category!
+  type: String!
+  amount: Float!
+  date: Date!
+  description: String!
+  createdAt: Timestamp!
+  notes: String
+  recurringTransaction: RecurringTransaction
+}
+
+type RecurringTransaction @table {
+  user: User!
+  account: Account!
+  category: Category!
+  type: String!
+  amount: Float!
+  startDate: Date!
+  frequency: String!
+  createdAt: Timestamp!
+  endDate: Date
+  description: String
+}

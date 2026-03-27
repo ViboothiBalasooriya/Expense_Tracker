@@ -1,0 +1,59 @@
+query ListUserAccounts @auth(level: USER) {
+  accounts(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    name
+    type
+    balance
+    description
+  }
+}
+
+mutation CreateNewCategory($name: String!, $type: String!, $budgetAmount: Float) @auth(level: USER) {
+  category_insert(data: {
+    userId_expr: "auth.uid",
+    name: $name,
+    type: $type,
+    budgetAmount: $budgetAmount
+  }) {
+    id
+  }
+}
+
+query GetRecentTransactions @auth(level: USER) {
+  transactions(where: {userId: {eq_expr: "auth.uid"}}, orderBy: [{createdAt: DESC}], limit: 5) {
+    id
+    description
+    amount
+    date
+    type
+    account {
+      name
+    }
+    category {
+      name
+    }
+  }
+}
+
+mutation RecordNewTransaction(
+  $accountId: UUID!,
+  $categoryId: UUID!,
+  $type: String!,
+  $amount: Float!,
+  $date: Date!,
+  $description: String!,
+  $notes: String
+) @auth(level: USER) {
+  transaction_insert(data: {
+    userId_expr: "auth.uid",
+    accountId: $accountId,
+    categoryId: $categoryId,
+    type: $type,
+    amount: $amount,
+    date: $date,
+    description: $description,
+    notes: $notes
+  }) {
+    id
+  }
+}
