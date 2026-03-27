@@ -1,0 +1,913 @@
+extend type Account {
+  """
+  ✨ List `RecurringTransaction` objects in a one-to-many relationship (where `RecurringTransaction`.`account` is this object).
+  """
+  recurringTransactions_on_account(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: RecurringTransaction_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [RecurringTransaction_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: RecurringTransaction_Having
+  ): [RecurringTransaction!]! @fdc_generated(from: "RecurringTransaction.account", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Transaction` objects in a one-to-many relationship (where `Transaction`.`account` is this object).
+  """
+  transactions_on_account(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Transaction_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Transaction_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Transaction_Having
+  ): [Transaction!]! @fdc_generated(from: "Transaction.account", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Account", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Account` table.
+  """
+  _count: Int! @fdc_generated(from: "Account.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Account` table where the `balance` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  balance_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.balance", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Account` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Account` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  description_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Account` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Account` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Account` table where the `type` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  type_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.type", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Account` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Account.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `balance` field in the `Account` table.
+  """
+  balance_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Account.balance", purpose: QUERY_SUM)
+  """
+  ✨ Average the `balance` field in the `Account` table.
+  """
+  balance_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Account.balance", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `balance` field in the `Account` table.
+  """
+  balance_min: Float @fdc_generated(from: "Account.balance", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `createdAt` field in the `Account` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Account.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `balance` field in the `Account` table.
+  """
+  balance_max: Float @fdc_generated(from: "Account.balance", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `createdAt` field in the `Account` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Account.createdAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Account.id", purpose: GLOBAL_ID)
+}
+extend type Category {
+  """
+  ✨ List `RecurringTransaction` objects in a one-to-many relationship (where `RecurringTransaction`.`category` is this object).
+  """
+  recurringTransactions_on_category(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: RecurringTransaction_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [RecurringTransaction_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: RecurringTransaction_Having
+  ): [RecurringTransaction!]! @fdc_generated(from: "RecurringTransaction.category", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Transaction` objects in a one-to-many relationship (where `Transaction`.`category` is this object).
+  """
+  transactions_on_category(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Transaction_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Transaction_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Transaction_Having
+  ): [Transaction!]! @fdc_generated(from: "Transaction.category", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Category", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Category` table.
+  """
+  _count: Int! @fdc_generated(from: "Category.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Category` table where the `budgetAmount` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  budgetAmount_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Category.budgetAmount", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Category` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Category.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Category` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Category.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Category` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Category.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Category` table where the `type` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  type_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Category.type", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Category` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Category.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `budgetAmount` field in the `Category` table.
+  """
+  budgetAmount_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Category.budgetAmount", purpose: QUERY_SUM)
+  """
+  ✨ Average the `budgetAmount` field in the `Category` table.
+  """
+  budgetAmount_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Category.budgetAmount", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `budgetAmount` field in the `Category` table.
+  """
+  budgetAmount_min: Float @fdc_generated(from: "Category.budgetAmount", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `createdAt` field in the `Category` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Category.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `budgetAmount` field in the `Category` table.
+  """
+  budgetAmount_max: Float @fdc_generated(from: "Category.budgetAmount", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `createdAt` field in the `Category` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Category.createdAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Category.id", purpose: GLOBAL_ID)
+}
+extend type RecurringTransaction {
+  """
+  ✨ List `Transaction` objects in a one-to-many relationship (where `Transaction`.`recurringTransaction` is this object).
+  """
+  transactions_on_recurringTransaction(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Transaction_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Transaction_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Transaction_Having
+  ): [Transaction!]! @fdc_generated(from: "Transaction.recurringTransaction", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "RecurringTransaction", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table.
+  """
+  _count: Int! @fdc_generated(from: "RecurringTransaction.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `accountId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  accountId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.accountId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `amount` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  amount_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.amount", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `categoryId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  categoryId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.categoryId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  description_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `endDate` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  endDate_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.endDate", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `frequency` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  frequency_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.frequency", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `startDate` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  startDate_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.startDate", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `type` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  type_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.type", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `RecurringTransaction` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "RecurringTransaction.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `amount` field in the `RecurringTransaction` table.
+  """
+  amount_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "RecurringTransaction.amount", purpose: QUERY_SUM)
+  """
+  ✨ Average the `amount` field in the `RecurringTransaction` table.
+  """
+  amount_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "RecurringTransaction.amount", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `amount` field in the `RecurringTransaction` table.
+  """
+  amount_min: Float @fdc_generated(from: "RecurringTransaction.amount", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `createdAt` field in the `RecurringTransaction` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "RecurringTransaction.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `endDate` field in the `RecurringTransaction` table.
+  """
+  endDate_min: Date @fdc_generated(from: "RecurringTransaction.endDate", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `startDate` field in the `RecurringTransaction` table.
+  """
+  startDate_min: Date @fdc_generated(from: "RecurringTransaction.startDate", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `amount` field in the `RecurringTransaction` table.
+  """
+  amount_max: Float @fdc_generated(from: "RecurringTransaction.amount", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `createdAt` field in the `RecurringTransaction` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "RecurringTransaction.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `endDate` field in the `RecurringTransaction` table.
+  """
+  endDate_max: Date @fdc_generated(from: "RecurringTransaction.endDate", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `startDate` field in the `RecurringTransaction` table.
+  """
+  startDate_max: Date @fdc_generated(from: "RecurringTransaction.startDate", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "RecurringTransaction.id", purpose: GLOBAL_ID)
+}
+extend type Transaction {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Transaction", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Transaction` table.
+  """
+  _count: Int! @fdc_generated(from: "Transaction.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `accountId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  accountId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.accountId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `amount` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  amount_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.amount", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `categoryId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  categoryId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.categoryId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `date` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  date_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.date", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `description` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  description_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.description", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `notes` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  notes_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.notes", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `recurringTransactionId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  recurringTransactionId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.recurringTransactionId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `type` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  type_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.type", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Transaction` table where the `userId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  userId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Transaction.userId", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `amount` field in the `Transaction` table.
+  """
+  amount_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Transaction.amount", purpose: QUERY_SUM)
+  """
+  ✨ Average the `amount` field in the `Transaction` table.
+  """
+  amount_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Transaction.amount", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `amount` field in the `Transaction` table.
+  """
+  amount_min: Float @fdc_generated(from: "Transaction.amount", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `createdAt` field in the `Transaction` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "Transaction.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `date` field in the `Transaction` table.
+  """
+  date_min: Date @fdc_generated(from: "Transaction.date", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `amount` field in the `Transaction` table.
+  """
+  amount_max: Float @fdc_generated(from: "Transaction.amount", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `createdAt` field in the `Transaction` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "Transaction.createdAt", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `date` field in the `Transaction` table.
+  """
+  date_max: Date @fdc_generated(from: "Transaction.date", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Transaction.id", purpose: GLOBAL_ID)
+}
+extend type User {
+  """
+  ✨ List `Account` objects in a one-to-many relationship (where `Account`.`user` is this object).
+  """
+  accounts_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Account_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Account_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Account_Having
+  ): [Account!]! @fdc_generated(from: "Account.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Category` objects in a one-to-many relationship (where `Category`.`user` is this object).
+  """
+  categories_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Category_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Category_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Category_Having
+  ): [Category!]! @fdc_generated(from: "Category.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `RecurringTransaction` objects in a one-to-many relationship (where `RecurringTransaction`.`user` is this object).
+  """
+  recurringTransactions_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: RecurringTransaction_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [RecurringTransaction_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: RecurringTransaction_Having
+  ): [RecurringTransaction!]! @fdc_generated(from: "RecurringTransaction.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `Transaction` objects in a one-to-many relationship (where `Transaction`.`user` is this object).
+  """
+  transactions_on_user(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Transaction_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Transaction_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Transaction_Having
+  ): [Transaction!]! @fdc_generated(from: "Transaction.user", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "User", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `User` table.
+  """
+  _count: Int! @fdc_generated(from: "User.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `currencyPreference` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  currencyPreference_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.currencyPreference", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `displayName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  displayName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.displayName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  email_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.email", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `User` table where the `photoUrl` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  photoUrl_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "User.photoUrl", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `User` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "User.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `User` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "User.createdAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "User.id", purpose: GLOBAL_ID)
+}
